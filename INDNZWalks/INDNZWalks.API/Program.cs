@@ -1,3 +1,4 @@
+using INDNZWalks.Api.Repositories;
 using INDNZWalks.API.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,7 @@ builder.Services.AddDbContext<INDNZWalksDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("INDNZWalks"));
 });
+builder.Services.AddScoped<IRegionRepository, RegionRepository>();
 
 var app = builder.Build();
 
